@@ -6,25 +6,12 @@
     </p>
     <div class="flex flex-wrap justify-center gap-6">
         <div class="w-full sm:w-1/2 lg:w-1/4 text-center">
-            <i class="fa-solid fa-camera"></i>
-            <h3>Lorem ipsum dolor sit.</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+            <div
+                class="h-[67px] w-[67px] mx-auto rounded-full flex items-center justify-center text-2xl text-blue-400 shadow-2xl">
+                <i class="fa-regular fa-camera"></i>
+            </div>
+            <h3 class="text-xl">Lorem ipsum dolor sit.</h3>
+            <p class="text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
         </div>
-        <div class="w-full sm:w-1/2 lg:w-1/4 text-center">
-            <i class="fa-solid fa-camera"></i>
-            <h3>Lorem ipsum dolor sit.</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-        </div>
-        <div class="w-full sm:w-1/2 lg:w-1/4 text-center">
-            <i class="fa-solid fa-camera"></i>
-            <h3>Lorem ipsum dolor sit.</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-        </div>
-        <div class="w-full sm:w-1/2 lg:w-1/4 text-center">
-            <i class="fa-solid fa-camera"></i>
-            <h3>Lorem ipsum dolor sit.</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-        </div>
-        <!-- Add up to 4 -->
     </div>
 </section>
