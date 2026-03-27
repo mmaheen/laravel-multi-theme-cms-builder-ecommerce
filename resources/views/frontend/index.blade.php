@@ -11,6 +11,7 @@
 <body>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, vero sit facere ipsum eaque dicta neque alias nisi
     quis deleniti placeat consequatur eligendi, praesentium ab est, vitae quibusdam a earum?
+    <a href="{{ route('theme.edit') }}">Edit Theme</a>
 </body>
 
 </html>
