@@ -1,7 +1,7 @@
 <section class="mt-5">
     <div class="grid grid-cols-1 md:grid-cols-10 gap-2">
         <div class="md:col-span-4 flex flex-col justify-center">
-            <h1 class="text-4xl font-bold mb-4">
+            <h1 class="text-4xl font-bold mb-4 text-slate-700">
                 Lorem ipsum dolor sit.
             </h1>
             <p class="text-justify mb-4 text-slate-500">

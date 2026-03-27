@@ -4,5 +4,7 @@
         <x-navbar />
         <x-hero />
         <x-features />
+        <x-overview />
+        <x-specs />
     </div>
 @endsection
