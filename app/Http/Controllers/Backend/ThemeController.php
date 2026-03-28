@@ -10,6 +10,9 @@ class ThemeController extends Controller
     //
     public function edit()
     {
-        return view('theme-edit.index');
+        $theme = 'default';
+        $config = include resource_path('views/themes/' . $theme . '/config.php');
+        // return $config['components'];
+        return view('theme-edit.index', compact('config'));
     }
 }
