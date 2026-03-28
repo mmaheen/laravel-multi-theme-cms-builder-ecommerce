@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -24,6 +25,7 @@ class ProductController extends Controller
     public function create()
     {
         //
+        return view("form");
     }
 
     /**
@@ -32,6 +34,26 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            // 'slug' => 'required|string|max:255|unique:products,slug',
+            // 'user_id' => 'required|exists:users,id',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+        ]);
+
+        $name = $request->input('name');
+        Product::create([
+            'name' => $name,
+            'slug' => Str::slug($name, '-', uniqid()),
+            'price' => $request->input('price'),
+            'stock' => $request->input('stock'),
+            'user_id' => 1,
+        ]);
+
+        return redirect()->route('products.index')
+            ->with('success', 'Product created successfully.');
+
     }
 
     /**
@@ -71,6 +93,14 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Find the product by ID (or slug if you’re using slugs)
+        $product = Product::findOrFail($id);
+
+        // Delete the product
+        $product->delete();
+
+        // Redirect back with a success message
+        return redirect()->route('products.index')
+            ->with('success', 'Product deleted successfully.');
     }
 }

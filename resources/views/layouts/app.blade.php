@@ -11,7 +11,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+<body>
 
     @yield('content')
 
