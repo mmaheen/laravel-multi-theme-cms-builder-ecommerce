@@ -14,6 +14,7 @@ class Component extends Model
         "product_id",
         "data",
     ];
+    protected $casts = ['data' => 'array'];
 
     public function product()
     {

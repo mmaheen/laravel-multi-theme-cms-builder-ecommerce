@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -23,6 +24,7 @@ class ProductController extends Controller
     public function create()
     {
         //
+        return view("form");
     }
 
     /**
@@ -31,6 +33,25 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            // 'slug' => 'required|string|max:255|unique:products,slug',
+            // 'user_id' => 'required|exists:users,id',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+        ]);
+
+        $name = $request->input('name');
+        Product::create([
+            'name' => $name,
+            'slug' => Str::slug($name, '-', uniqid()),
+            'price' => $request->input('price'),
+            'stock' => $request->input('stock'),
+            'user_id' => 1,
+        ]);
+
+        return redirect()->route('products.index')
+            ->with('success', 'Product created successfully.');
     }
 
     /**
@@ -54,6 +75,7 @@ class ProductController extends Controller
 
         $theme = 'default';
         $config = include resource_path('views/themes/' . $theme . '/config.php');
+        // dd($product->components);
         return view("theme-edit.index", compact("product", "config"));
     }
 

@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('components', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('position');
             $table->foreignId('product_id')->constrained();
             $table->json('data')->nullable();
             $table->timestamps();
