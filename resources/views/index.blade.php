@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
+@section('content')
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md text-center">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6">Welcome to Your Dashboard</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, vero sit facere ipsum eaque dicta neque alias nisi
-    quis deleniti placeat consequatur eligendi, praesentium ab est, vitae quibusdam a earum?
-    <a href="{{ route('theme.edit') }}">Edit Theme</a>
-    <a href="{{ route('test') }}">test</a>
-</body>
-
-</html>
+        <nav class="space-y-4">
+            <a href="{{ route('products.index') }}"
+                class="block w-full py-3 px-4 rounded-md bg-blue-600 text-white font-medium hover:bg-blue-700 transition">
+                Products
+            </a>
+        </nav>
+    </div>
+@endsection

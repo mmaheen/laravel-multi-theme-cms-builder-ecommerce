@@ -2,21 +2,20 @@
 
 namespace Database\Seeders;
 
+use App\Models\Component;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class ComponentSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      */
     public function run(): void
     {
-        $this->call([
-            UserSeeder::class,
-            ProductSeeder::class,
+        //
+        Component::create([
+            "name" => "",
         ]);
     }
 }

@@ -9,14 +9,10 @@
     <!-- Nav -->
     <nav class="p-4 space-y-2 text-sm">
 
-        <a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">
-            Navbar
-        </a>
-        <a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">
-            Hero
-        </a>
-
-
-
+        @foreach ($config['components'] as $key => $component)
+            <a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">
+                {{ ucfirst($key) }}
+            </a>
+        @endforeach
     </nav>
 </aside>
