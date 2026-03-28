@@ -10,6 +10,6 @@ class HomeController extends Controller
     //
     public function test()
     {
-        return view('frontend.themes.default.index');
+        return view('themes.default.index');
     }
 }

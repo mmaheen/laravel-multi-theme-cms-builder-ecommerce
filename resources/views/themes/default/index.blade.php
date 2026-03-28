@@ -1,4 +1,4 @@
-@extends('frontend.themes.default.layouts.app')
+@extends('themes.default.layouts.app')
 @section('content')
     <div class="container mx-auto my-5">
         <x-navbar />

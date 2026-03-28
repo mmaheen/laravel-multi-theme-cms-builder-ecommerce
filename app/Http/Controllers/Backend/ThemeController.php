@@ -10,6 +10,6 @@ class ThemeController extends Controller
     //
     public function edit()
     {
-        return view('backend.theme-edit.index');
+        return view('theme-edit.index');
     }
 }

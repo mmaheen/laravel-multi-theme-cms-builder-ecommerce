@@ -8,15 +8,19 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="bg-gray-100 h-screen flex">
 
     <!-- Left Sidebar -->
-    @include('backend.theme-edit.layouts.left-sidebar')
+    @include('theme-edit.layouts.left-sidebar')
 
     <!-- Right Sidebar -->
-    @include('backend.theme-edit.layouts.right-sidebar')
+    @include('theme-edit.layouts.right-sidebar')
 
     <!-- Main Content -->
     <main class="flex-1 flex flex-col transition-all duration-300 ease-in-out"
@@ -28,7 +32,7 @@
         }">
 
         <!-- Top Navbar -->
-        @include('backend.theme-edit.layouts.navbar')
+        @include('theme-edit.layouts.navbar')
 
         <!-- Content Area -->
         <section class="flex-1 p-6 overflow-y-auto">

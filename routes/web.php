@@ -5,7 +5,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('frontend.index');
+    return view('index');
 });
 
 Route::get('/edit/theme', [ThemeController::class, 'edit'])->name('theme.edit');
