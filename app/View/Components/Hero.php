@@ -8,12 +8,13 @@ use Illuminate\View\Component;
 
 class Hero extends Component
 {
+    public $hero;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($hero)
     {
-        //
+        $this->hero = $hero;
     }
 
     /**

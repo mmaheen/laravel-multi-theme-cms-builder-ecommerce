@@ -61,7 +61,11 @@ class ProductController extends Controller
     {
         //
         $product = Product::where("slug", $slug)->first();
-        return view("themes.default.index", compact("product"));
+
+        $navbar = $product->components()->where('name', 'navbar')->first();
+        $hero = $product->components()->where('name', 'hero')->first();
+        $context = compact('product', 'navbar', 'hero');
+        return view("themes.default.index", $context);
     }
 
     /**

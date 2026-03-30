@@ -1,6 +1,6 @@
 @extends('theme-edit.layouts.app')
 @section('content')
     @foreach ($product->components->sortBy('position') as $component)
-        <x-dynamic-component :component="$component->name" />
+        <x-dynamic-component :component="$component->name" :navbar="$navbar" :hero="$hero" />
     @endforeach
 @endsection

@@ -5,7 +5,7 @@ return [
         'navbar' => [
             'title' => [
                 'type' => 'text',
-                'name' => 'header_title',
+                'name' => 'title',
                 'label' => 'Please enter title',
                 'value' => 'Store',
                 'placeholder' => 'Enter your store name'
@@ -16,14 +16,14 @@ return [
         'hero' => [
             'title' => [
                 'type' => 'text',
-                'name' => 'hero_title',
+                'name' => 'title',
                 'label' => 'Please enter your hero text',
                 'value' => 'Test Hero',
                 'placeholder' => 'Enter your product name'
             ],
             'subtitle' => [
                 'type' => 'textarea',
-                'name' => 'hero_subtitle',
+                'name' => 'description',
                 'label' => 'Please enter your hero subtitle',
                 'value' => 'Welcome to our store',
                 'placeholder' => 'Enter your hero subtitle'

@@ -29,7 +29,24 @@ class ComponentController extends Controller
 
         $theme = 'default';
         $config = include resource_path('views/themes/' . $theme . '/config.php');
-        // dd($product->components);
-        return view("theme-edit.index", compact("product", "config"));
+
+        $navbar = $product->components()->where('name', 'navbar')->first();
+        $hero = $product->components()->where('name', 'hero')->first();
+        $context = compact('product', 'config', 'navbar', 'hero');
+        // return $hero;
+        return view("theme-edit.index", $context);
+    }
+
+    public function update(Request $request, Component $component)
+    {
+        // Grab all submitted fields
+        $data = $request->except('_token', '_method');
+
+        // Merge with existing data if needed
+        $component->data = array_merge($component->data ?? [], $data);
+
+        $component->save();
+
+        return back()->with('success', 'Component updated successfully!');
     }
 }

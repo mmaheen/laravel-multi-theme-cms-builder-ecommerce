@@ -8,13 +8,13 @@ use Illuminate\View\Component;
 
 class Navbar extends Component
 {
-
+    public $navbar;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($navbar)
     {
-        //
+        $this->navbar = $navbar;
     }
 
     /**
