@@ -2,25 +2,31 @@
 return [
     'name' => 'default',
     'components' => [
-        'header' => [
-            // 'label' => 'header',
-            'fields' => [
-                'title' => [
-                    'type' => 'text',
-                    'label' => 'Please enter title',
-                    'value' => 'Store'
-                ]
+        'navbar' => [
+            'title' => [
+                'type' => 'text',
+                'name' => 'header_title',
+                'label' => 'Please enter title',
+                'value' => 'Store',
+                'placeholder' => 'Enter your store name'
             ]
+
         ],
 
         'hero' => [
-            // 'label' => 'header',
-            'fields' => [
-                'title' => [
-                    'type' => 'text',
-                    'label' => 'Please enter your hero text',
-                    'value' => 'Test Hero'
-                ]
+            'title' => [
+                'type' => 'text',
+                'name' => 'hero_title',
+                'label' => 'Please enter your hero text',
+                'value' => 'Test Hero',
+                'placeholder' => 'Enter your product name'
+            ],
+            'subtitle' => [
+                'type' => 'textarea',
+                'name' => 'hero_subtitle',
+                'label' => 'Please enter your hero subtitle',
+                'value' => 'Welcome to our store',
+                'placeholder' => 'Enter your hero subtitle'
             ]
         ],
 

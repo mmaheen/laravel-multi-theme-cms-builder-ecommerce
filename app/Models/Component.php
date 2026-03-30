@@ -13,6 +13,7 @@ class Component extends Model
         "name",
         "product_id",
         "data",
+        "position",
     ];
     protected $casts = ['data' => 'array'];
 

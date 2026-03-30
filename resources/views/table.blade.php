@@ -51,6 +51,10 @@
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
+                                    <a href="{{ route('components.edit', $product->slug) }}"
+                                        class="text-gray-600 hover:text-gray-800" title="Edit Page">
+                                        <i class="fas fa-file-alt"></i>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

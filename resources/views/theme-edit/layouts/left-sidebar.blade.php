@@ -10,7 +10,8 @@
     <nav class="p-4 space-y-2 text-sm">
 
         @foreach ($config['components'] as $key => $component)
-            <a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">
+            <a href="{{ route('component.create', [$product->slug, $key]) }}"
+                class="block px-3 py-2 rounded hover:bg-gray-100">
                 {{ ucfirst($key) }}
             </a>
         @endforeach

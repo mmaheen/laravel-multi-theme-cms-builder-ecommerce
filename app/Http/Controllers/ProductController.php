@@ -72,11 +72,7 @@ class ProductController extends Controller
         //
         $product = Product::where("slug", $slug)->first();
 
-
-        $theme = 'default';
-        $config = include resource_path('views/themes/' . $theme . '/config.php');
-        // dd($product->components);
-        return view("theme-edit.index", compact("product", "config"));
+        return view("form", compact("product"));
     }
 
     /**
@@ -93,5 +89,10 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         //
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('products.index')
+            ->with('success', 'Product deleted successfully.');
     }
 }
