@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-gray-200">
+<nav x-data="{ open: false }" class="bg-gray-200 mb-5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16 items-center">
 
@@ -10,10 +10,12 @@
 
             <!-- Desktop Links -->
             <div class="hidden md:flex space-x-6">
-                <a href="#" class="hover:text-blue-300">Home</a>
-                <a href="#" class="hover:text-blue-300">Features</a>
+                @foreach ($navbar->data['menus'] ?? [] as $menu)
+                    <a href="#{{ $menu }}" class="hover:text-blue-300">{{ ucfirst($menu) }}</a>
+                @endforeach
+                {{-- <a href="#" class="hover:text-blue-300">Features</a>
                 <a href="#" class="hover:text-blue-300">Pricing</a>
-                <a href="#" class="hover:text-blue-300">About</a>
+                <a href="#" class="hover:text-blue-300">About</a> --}}
             </div>
 
             <!-- Mobile Hamburger -->

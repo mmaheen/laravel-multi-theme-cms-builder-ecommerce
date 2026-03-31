@@ -3,8 +3,8 @@
     <div class="container mx-auto my-5">
         <x-navbar :navbar="$navbar" />
         <x-hero :hero="$hero" />
-        <x-features />
-        <x-overview />
-        <x-specs />
+        <x-features :features="$features" />
+        <x-overview :overview="$overview" />
+        <x-specs :specs="$specs" />
     </div>
 @endsection

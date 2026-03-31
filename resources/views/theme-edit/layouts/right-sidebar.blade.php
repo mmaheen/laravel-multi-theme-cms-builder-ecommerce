@@ -30,51 +30,62 @@
                         </label>
 
                         @switch($field['type'])
-                            @case($fieldName == 'description')
+                            @case('textarea')
                                 <textarea
                                     class="block w-full rounded-md border-gray-300 shadow-sm
-                                                 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2"
+                   focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2"
                                     name="{{ $field['name'] }}" placeholder="{{ $field['placeholder'] }}">{{ $productComponent->data[$field['name']] ?? $field['value'] }}</textarea>
                             @break
 
-                            @case($fieldName == 'title')
+                            @case('text')
                                 <input
                                     class="block w-full rounded-md border-gray-300 shadow-sm
-                                             focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2"
+                   focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2"
                                     type="text" name="{{ $field['name'] }}"
                                     value="{{ $productComponent->data[$field['name']] ?? $field['value'] }}"
                                     placeholder="{{ $field['placeholder'] }}">
                             @break
 
-                            @case($fieldName == 'price')
+                            @case('number')
                                 <input
                                     class="block w-full rounded-md border-gray-300 shadow-sm
-                                             focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2"
+                   focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2"
                                     type="number" name="{{ $field['name'] }}"
                                     value="{{ $productComponent->data[$field['name']] ?? $field['value'] }}"
                                     placeholder="{{ $field['placeholder'] }}">
                             @break
 
-                            @case($fieldName == 'image')
-                                <input
+                            @case('file')
+                                <input type="file" name="{{ $field['name'] }}"
                                     class="block w-full text-sm text-gray-700
-                                        file:mr-4 file:py-2 file:px-4
-                                        file:rounded-md file:border-0
-                                        file:text-sm file:font-semibold
-                                        file:bg-indigo-600 file:text-white
-                                        hover:file:bg-indigo-700
-                                        cursor-pointer"
-                                    type="file" name="{{ $field['name'] }}">
-                            @endswitch
-                        </div>
-                    @endforeach
+                   file:mr-4 file:py-2 file:px-4
+                   file:rounded-md file:border-0
+                   file:text-sm file:font-semibold
+                   file:bg-blue-600 file:text-white
+                   hover:file:bg-indigo-700 cursor-pointer">
+                            @break
 
-                    <button type="submit"
-                        class="bg-indigo-600 text-white font-semibold py-2 px-2 rounded-md shadow
-                               hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1">
-                        <i class="fas fa-save"></i>
-                    </button>
-                </form>
-            @endforeach
-        </div>
-    </aside>
+                            @case('checkbox')
+                                <div class="space-y-2">
+                                    @foreach ($field['options'] as $optionValue => $optionLabel)
+                                        <label class="flex items-center space-x-2">
+                                            <input type="checkbox" name="{{ $field['name'] }}[]" value="{{ $optionValue }}"
+                                                class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
+                                                @if (in_array($optionValue, $productComponent->data[$field['name']] ?? ($field['value'] ?? []))) checked @endif>
+                                            <span class="text-sm text-gray-700">{{ $optionLabel }}</span>
+                                        </label>
+                                    @endforeach
+                                </div>
+                            @break
+                        @endswitch
+                    </div>
+                @endforeach
+
+                <button type="submit"
+                    class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1">
+                    <i class="fas fa-save"></i> {{ ucfirst($productComponent->name) }}
+                </button>
+            </form>
+        @endforeach
+    </div>
+</aside>

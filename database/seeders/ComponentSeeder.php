@@ -22,7 +22,7 @@ class ComponentSeeder extends Seeder
                 'product_id' => 1,
                 'data' => [
                     'title' => 'ShopSphere',
-                    'sections' => [
+                    'menus' => [
                         'home',
                         'hero',
                         'feature',
@@ -63,7 +63,7 @@ class ComponentSeeder extends Seeder
                 'data' => [
                     'title' => 'Powerful Features',
                     'description' => 'Discover the cutting-edge technology that powers every detail.',
-                    'features' => [
+                    'attributes' => [
                         [
                             'icon' => 'fas fa-camera',
                             'title' => 'Camera',
@@ -107,6 +107,16 @@ class ComponentSeeder extends Seeder
                         'link'
                     ]),
                     'button_title' => 'Read more...',
+                ]
+            ],
+            [
+                'name' => 'specs',
+                'position' => 4,
+                'product_id' => 1,
+                'data' => [
+                    'title' => '- Product Specs & Details',
+                    'description' => 'Explore the technical details that define performance and reliability. A closer look at the numbers behind innovation.',
+                    'image' => 'about.png',
                 ]
             ],
             // ['name' => 'tutorial', 'position' => 5, 'product_id' => 1, 'data' => []],

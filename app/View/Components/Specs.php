@@ -8,12 +8,14 @@ use Illuminate\View\Component;
 
 class Specs extends Component
 {
+    public $specs;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($specs)
     {
         //
+        $this->specs = $specs;
     }
 
     /**

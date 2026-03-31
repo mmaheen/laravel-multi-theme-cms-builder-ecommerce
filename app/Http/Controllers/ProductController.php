@@ -64,7 +64,10 @@ class ProductController extends Controller
 
         $navbar = $product->components()->where('name', 'navbar')->first();
         $hero = $product->components()->where('name', 'hero')->first();
-        $context = compact('product', 'navbar', 'hero');
+        $features = $product->components()->where('name', 'features')->first();
+        $overview = $product->components()->where('name', 'overview')->first();
+        $specs = $product->components()->where('name', 'specs')->first();
+        $context = compact('product', 'navbar', 'hero', 'features', 'overview', 'specs');
         return view("themes.default.index", $context);
     }
 

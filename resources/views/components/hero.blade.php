@@ -1,4 +1,4 @@
-<section class="mt-5">
+<section class="mb-5" id="hero">
     <div class="grid grid-cols-1 md:grid-cols-10 gap-2">
         <div class="md:col-span-4 flex flex-col justify-center">
             <h1 class="text-4xl font-bold mb-4 text-slate-700">

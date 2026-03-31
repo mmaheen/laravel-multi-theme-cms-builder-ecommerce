@@ -1,11 +1,10 @@
-<section class="mb-5">
+<section class="mb-5" id="specs">
     <h1 class="text-3xl mx-auto max-w-2/4 text-center text-slate-700">
-        Lorem, ipsum dolor sit amet
+        {{ $specs->data['title'] ?? 'Specs Title' }}
     </h1>
-    <p class="max-w-2/4 mx-auto text-slate-500">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi doloremque quibusdam beatae, deserunt temporibus,
-        tempore eligendi enim laboriosam expedita nam voluptate placeat illum dolorem non? Nobis, ipsa. Cumque,
-        consequatur repudiandae.
+    <p class="max-w-2/4 mx-auto text-center text-slate-500">
+        {{ $specs->data['description'] ?? 'Specs Description' }}
     </p>
-    <img src="{{ asset('assets/images/product_features.png') }}" alt="">
+    <img src="{{ isset($specs->data['image']) ? asset('storage/uploads/' . $specs->data['image']) : asset('assets/images/placeholder.png') }}"
+        alt="">
 </section>
