@@ -7,7 +7,7 @@ return [
                 'type' => 'text',
                 'name' => 'title',
                 'label' => 'Please enter title',
-                'value' => 'Store',
+                'value' => 'Config Navbar Title',
                 'placeholder' => 'Enter your store name'
             ]
 
@@ -21,12 +21,25 @@ return [
                 'value' => 'Test Hero',
                 'placeholder' => 'Enter your product name'
             ],
-            'subtitle' => [
+            'description' => [
                 'type' => 'textarea',
                 'name' => 'description',
-                'label' => 'Please enter your hero subtitle',
+                'label' => 'Please enter your hero description',
                 'value' => 'Welcome to our store',
-                'placeholder' => 'Enter your hero subtitle'
+                'placeholder' => 'Enter your hero description'
+            ],
+            'price' => [
+                'type' => 'number',
+                'name' => 'price',
+                'label' => 'Please enter your product price',
+                'value' => 1006,
+                'placeholder' => 'Enter your product price'
+            ],
+            'image' => [
+                'type' => 'file',
+                'name' => 'image',
+                'label' => 'Please upload your product image',
+                // 'value' => '{{ asset("assets/images/placeholder.png") }}',
             ]
         ],
 

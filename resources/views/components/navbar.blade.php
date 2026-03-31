@@ -5,7 +5,7 @@
             <!-- Brand -->
             <a href="#"
                 class="text-xl font-bold text-blue-400 transform transition-transform duration-300 ease-in-out hover:scale-110">
-                {{ $navbar->data['title'] }}
+                {{ $navbar->data['title'] ?? 'My Website' }}
             </a>
 
             <!-- Desktop Links -->

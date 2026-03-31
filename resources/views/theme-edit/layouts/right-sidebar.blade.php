@@ -15,7 +15,7 @@
             @endphp
 
             <form action="{{ route('component.update', $productComponent->id) }}" method="POST"
-                class="mb-10 border-b pb-6">
+                enctype="multipart/form-data" class="mb-10 border-b pb-6">
                 @csrf
                 @method('PUT')
 
@@ -30,14 +30,14 @@
                         </label>
 
                         @switch($field['type'])
-                            @case('textarea')
+                            @case($fieldName == 'description')
                                 <textarea
                                     class="block w-full rounded-md border-gray-300 shadow-sm
                                                  focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2"
                                     name="{{ $field['name'] }}" placeholder="{{ $field['placeholder'] }}">{{ $productComponent->data[$field['name']] ?? $field['value'] }}</textarea>
                             @break
 
-                            @case('text')
+                            @case($fieldName == 'title')
                                 <input
                                     class="block w-full rounded-md border-gray-300 shadow-sm
                                              focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2"
@@ -46,23 +46,35 @@
                                     placeholder="{{ $field['placeholder'] }}">
                             @break
 
-                            @case('number')
+                            @case($fieldName == 'price')
                                 <input
                                     class="block w-full rounded-md border-gray-300 shadow-sm
                                              focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2"
-                                    type="number" name="{{ $field['name'] }}" value="{{ $field['value'] }}"
+                                    type="number" name="{{ $field['name'] }}"
+                                    value="{{ $productComponent->data[$field['name']] ?? $field['value'] }}"
                                     placeholder="{{ $field['placeholder'] }}">
                             @break
-                        @endswitch
-                    </div>
-                @endforeach
 
-                <button type="submit"
-                    class="w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow
+                            @case($fieldName == 'image')
+                                <input
+                                    class="block w-full text-sm text-gray-700
+                                        file:mr-4 file:py-2 file:px-4
+                                        file:rounded-md file:border-0
+                                        file:text-sm file:font-semibold
+                                        file:bg-indigo-600 file:text-white
+                                        hover:file:bg-indigo-700
+                                        cursor-pointer"
+                                    type="file" name="{{ $field['name'] }}">
+                            @endswitch
+                        </div>
+                    @endforeach
+
+                    <button type="submit"
+                        class="bg-indigo-600 text-white font-semibold py-2 px-2 rounded-md shadow
                                hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1">
-                    Save
-                </button>
-            </form>
-        @endforeach
-    </div>
-</aside>
+                        <i class="fas fa-save"></i>
+                    </button>
+                </form>
+            @endforeach
+        </div>
+    </aside>

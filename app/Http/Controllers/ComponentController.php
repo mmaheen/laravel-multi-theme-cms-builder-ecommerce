@@ -39,10 +39,24 @@ class ComponentController extends Controller
 
     public function update(Request $request, Component $component)
     {
-        // Grab all submitted fields
+        // Grab all submitted fields except tokens
         $data = $request->except('_token', '_method');
 
-        // Merge with existing data if needed
+        // Handle file upload if present
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+
+            // Generate a unique filename
+            $filename = $component->name . '_' . uniqid() . '_uploaded_at_' . time() . '_' . $file->getClientOriginalName();
+
+            // Store the file in storage/app/public/uploads
+            $file->storeAs('uploads', $filename, 'public');
+
+            // Add the filename to the data array
+            $data['image'] = $filename;
+        }
+
+        // Merge with existing data so you don’t lose other keys
         $component->data = array_merge($component->data ?? [], $data);
 
         $component->save();
