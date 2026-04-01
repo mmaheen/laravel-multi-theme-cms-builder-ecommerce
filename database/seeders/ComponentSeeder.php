@@ -65,7 +65,7 @@ class ComponentSeeder extends Seeder
                     'description' => 'Discover the cutting-edge technology that powers every detail.',
                     'attributes' => [
                         [
-                            'icon' => 'fas fa-camera',
+                            'icon' => 'fa-regular fa-camera',
                             'title' => 'Camera',
                             'description' => '20 MP Resolution, 4k at 60 FPS',
                         ],
@@ -114,9 +114,26 @@ class ComponentSeeder extends Seeder
                 'position' => 4,
                 'product_id' => 1,
                 'data' => [
-                    'title' => '- Product Specs & Details',
+                    'title' => 'Product Specs & Details',
                     'description' => 'Explore the technical details that define performance and reliability. A closer look at the numbers behind innovation.',
                     'image' => 'about.png',
+                ]
+            ],
+            [
+                'name' => 'navbar',
+                'position' => 5,
+                'product_id' => 1,
+                'data' => [
+                    'title' => 'ShopSphere',
+                    'menus' => [
+                        'home',
+                        'hero',
+                        'feature',
+                        'parts',
+                        'tutorial',
+                        'gallery',
+                        'contact',
+                    ],
                 ]
             ],
             // ['name' => 'tutorial', 'position' => 5, 'product_id' => 1, 'data' => []],

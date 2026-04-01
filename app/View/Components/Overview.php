@@ -8,14 +8,12 @@ use Illuminate\View\Component;
 
 class Overview extends Component
 {
-    public $overview;
     /**
      * Create a new component instance.
      */
-    public function __construct($overview)
+    public function __construct()
     {
         //
-        $this->overview = $overview;
     }
 
     /**

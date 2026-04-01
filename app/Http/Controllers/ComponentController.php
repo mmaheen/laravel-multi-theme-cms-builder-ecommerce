@@ -24,26 +24,55 @@ class ComponentController extends Controller
     }
     public function edit(string $slug)
     {
-        $product = Product::where("slug", $slug)->first();
+        $product = Product::where("slug", $slug)->firstOrFail();
 
         $theme = 'default';
         $config = include resource_path('views/themes/' . $theme . '/config.php');
 
-        $navbar = $product->components()->where('name', 'navbar')->first();
-        $hero = $product->components()->where('name', 'hero')->first();
-        $features = $product->components()->where('name', 'features')->first();
-        $overview = $product->components()->where('name', 'overview')->first();
-        $specs = $product->components()->where('name', 'specs')->first();
-        $context = compact('product', 'config', 'navbar', 'hero', 'features', 'overview', 'specs');
+        // Get all components sorted by position
+        $components = $product->components()->orderBy('position')->get();
 
-        return view("theme-edit.index", $context);
+        return view("theme-edit.index", [
+            'product' => $product,
+            'config' => $config,
+            'components' => $components,
+        ]);
     }
 
     public function update(Request $request, Component $component)
     {
-        // return $request->all();
+        $validated = $request->validate([
+            'title' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'nullable|numeric|min:0',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'menus' => 'nullable|array',
+            'attributes' => 'nullable|array',
+            'delete_attribute_index' => 'nullable|integer',
+        ]);
+
         $data = $request->except('_token', '_method');
 
+        // Work with a local copy of data
+        $componentData = $component->data ?? [];
+
+        // Handle deletion
+        if ($request->filled('delete_attribute_index')) {
+            $index = $request->input('delete_attribute_index');
+            $attributes = $componentData['attributes'] ?? [];
+
+            if (isset($attributes[$index])) {
+                unset($attributes[$index]);
+                $componentData['attributes'] = array_values($attributes);
+            }
+
+            $component->data = $componentData;
+            $component->save();
+
+            return back()->with('success', 'Attribute deleted successfully!');
+        }
+
+        // Handle image upload
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = $component->name . '_' . uniqid() . '_uploaded_at_' . time() . '_' . $file->getClientOriginalName();
@@ -51,7 +80,18 @@ class ComponentController extends Controller
             $data['image'] = $filename;
         }
 
-        $component->data = array_merge($component->data ?? [], $data);
+        // Handle attributes append
+        if ($request->has('attributes')) {
+            $attributes = $componentData['attributes'] ?? [];
+            if (!is_array($attributes)) {
+                $attributes = [];
+            }
+            $attributes[] = $data['attributes'];
+            $componentData['attributes'] = $attributes;
+        }
+
+        // Merge other fields
+        $component->data = array_merge($componentData, $data);
         $component->save();
 
         return back()->with('success', 'Component updated successfully!');

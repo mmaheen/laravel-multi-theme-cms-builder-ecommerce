@@ -8,13 +8,12 @@ use Illuminate\View\Component;
 
 class Features extends Component
 {
-    public $features;
     /**
      * Create a new component instance.
      */
-    public function __construct($features)
+    public function __construct()
     {
-        $this->features = $features;
+
     }
 
     /**

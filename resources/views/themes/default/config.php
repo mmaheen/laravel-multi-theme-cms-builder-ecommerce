@@ -72,6 +72,33 @@ return [
                 'value' => 'Discover the cutting-edge technology that powers every detail.',
                 'placeholder' => 'Enter your feature description'
             ],
+            'attributes' => [
+                'label' => 'Please Add new feature',
+                'title' => [
+                    'type' => 'text',
+                    'name' => 'title',
+                    'label' => 'Please write your attribute title',
+                    'value' => 'camera',
+                    'placeholder' => 'Better 1 word'
+                ],
+                'description' => [
+                    'type' => 'textarea',
+                    'name' => 'description',
+                    'label' => 'Please enter your feature description',
+                    'value' => 'Better Camera',
+                    'placeholder' => 'Better 1 line'
+                ],
+                'icon' => [
+                    'type' => 'select',
+                    'name' => 'logo',
+                    'label' => 'Select a icon',
+                    'options' => [
+                        'fa fa-camera',
+                        'fa fa-battery-full',
+                        'fa fa-laptop'
+                    ]
+                ]
+            ]
         ],
         'overview' => [
             'title' => [
@@ -94,9 +121,6 @@ return [
                 'label' => 'Please upload your overview image',
                 // 'value' => '{{ asset("assets/images/placeholder.png") }}',
             ],
-            // 'attributes' => [
-
-            // ]
         ],
         'specs' => [
             'title' => [

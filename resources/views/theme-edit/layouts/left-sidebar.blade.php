@@ -11,7 +11,7 @@
 
         @foreach ($config['components'] as $key => $component)
             <a href="{{ route('component.create', [$product->slug, $key]) }}"
-                class="block px-3 py-2 rounded hover:bg-gray-100">
+                class="block bg-gray-100 px-3 py-2 rounded font-semibold hover:bg-gray-200">
                 {{ ucfirst($key) }}
             </a>
         @endforeach

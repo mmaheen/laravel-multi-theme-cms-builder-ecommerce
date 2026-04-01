@@ -1,3 +1,4 @@
+@props(['componentData'])
 <nav x-data="{ open: false }" class="bg-gray-200 mb-5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16 items-center">
@@ -5,17 +6,14 @@
             <!-- Brand -->
             <a href="#"
                 class="text-xl font-bold text-blue-400 transform transition-transform duration-300 ease-in-out hover:scale-110">
-                {{ $navbar->data['title'] ?? 'My Website' }}
+                {{ $componentData['title'] ?? 'My Website' }}
             </a>
 
             <!-- Desktop Links -->
             <div class="hidden md:flex space-x-6">
-                @foreach ($navbar->data['menus'] ?? [] as $menu)
+                @foreach ($componentData['menus'] ?? [] as $menu)
                     <a href="#{{ $menu }}" class="hover:text-blue-300">{{ ucfirst($menu) }}</a>
                 @endforeach
-                {{-- <a href="#" class="hover:text-blue-300">Features</a>
-                <a href="#" class="hover:text-blue-300">Pricing</a>
-                <a href="#" class="hover:text-blue-300">About</a> --}}
             </div>
 
             <!-- Mobile Hamburger -->
@@ -38,10 +36,11 @@
     <!-- Mobile Menu -->
     <div class="md:hidden" x-show="open" x-transition>
         <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="#" class="block px-3 py-2 rounded hover:bg-gray-800">Home</a>
-            <a href="#" class="block px-3 py-2 rounded hover:bg-gray-800">Features</a>
-            <a href="#" class="block px-3 py-2 rounded hover:bg-gray-800">Pricing</a>
-            <a href="#" class="block px-3 py-2 rounded hover:bg-gray-800">About</a>
+            @foreach ($componentData['menus'] ?? [] as $menu)
+                <a href="#{{ $menu }}"
+                    class="block px-3 py-2 rounded hover:bg-gray-800">{{ ucfirst($menu) }}</a>
+            @endforeach
+
         </div>
     </div>
 </nav>
