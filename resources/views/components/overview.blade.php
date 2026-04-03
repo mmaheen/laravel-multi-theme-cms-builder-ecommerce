@@ -1,6 +1,6 @@
 @props(['componentData'])
 <section class="mb-5" id="overview">
-    <div class="bg-no-repeat bg-contain h-[600] lg:h-[700px] w-full grid grid-cols-1 md:grid-cols-10"
+    <div class="bg-no-repeat bg-contain h-[600] lg:h-175 w-full grid grid-cols-1 md:grid-cols-10"
         style="background-image: url('/assets/images/about_shape.svg');">
         <img class="md:col-span-6 mt-7"
             src="{{ isset($componentData['image']) ? asset('storage/uploads/' . $componentData['image']) : asset('assets/images/placeholder.png') }}"

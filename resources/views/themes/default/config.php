@@ -6,14 +6,14 @@ return [
             'title' => [
                 'type' => 'text',
                 'name' => 'title',
-                'label' => 'Please enter title',
-                'value' => 'Config Navbar Title',
+                'label' => 'Navbar Title',
+                'value' => 'Aurora Tech Store',
                 'placeholder' => 'Enter your store name'
             ],
             'menus' => [
                 'type' => 'checkbox',
                 'name' => 'menus',
-                'label' => 'Please select your menu',
+                'label' => 'Navigation Menu',
                 'options' => [
                     'home' => 'Home',
                     'hero' => 'Hero',
@@ -24,124 +24,134 @@ return [
                 ],
                 'value' => ['home', 'hero', 'features'] // default checked
             ]
-
-
         ],
 
         'hero' => [
             'title' => [
                 'type' => 'text',
                 'name' => 'title',
-                'label' => 'Please enter your hero text',
-                'value' => 'Performance Meets Innovation',
-                'placeholder' => 'Enter your product name'
+                'label' => 'Hero Headline',
+                'value' => 'Innovation That Inspires',
+                'placeholder' => 'Enter your product headline'
             ],
             'description' => [
                 'type' => 'textarea',
                 'name' => 'description',
-                'label' => 'Please enter your hero description',
-                'value' => 'Engineered for performance, designed for creators.',
-                'placeholder' => 'Enter your hero description'
+                'label' => 'Hero Tagline',
+                'value' => 'Crafted for creators, optimized for performance.',
+                'placeholder' => 'Write a short product tagline'
             ],
             'price' => [
                 'type' => 'number',
                 'name' => 'price',
-                'label' => 'Please enter your product price',
-                'value' => 1006,
-                'placeholder' => 'Enter your product price'
+                'label' => 'Product Price (USD)',
+                'value' => 100,
+                'placeholder' => 'Enter price in USD'
+            ],
+            'currency' => [
+                'type' => 'select',
+                'name' => 'currency',
+                'label' => 'Currency',
+                'options' => ['BDT', 'USD', 'EUR', 'GBP'],
+                'value' => 'BDT',
+                'placeholder' => 'Select currency'
             ],
             'image' => [
                 'type' => 'file',
                 'name' => 'image',
-                'label' => 'Please upload your product image',
-                // 'value' => '{{ asset("assets/images/placeholder.png") }}',
+                'label' => 'Hero Product Image',
+                'placeholder' => 'Upload product showcase image'
             ]
         ],
+
         'features' => [
             'title' => [
                 'type' => 'text',
                 'name' => 'title',
-                'label' => 'Please enter your feature title',
-                'value' => 'Powerful Features',
-                'placeholder' => 'Enter your feature title'
+                'label' => 'Features Section Title',
+                'value' => 'Next‑Gen Features',
+                'placeholder' => 'Enter section title'
             ],
             'description' => [
                 'type' => 'textarea',
                 'name' => 'description',
-                'label' => 'Please enter your feature description',
-                'value' => 'Discover the cutting-edge technology that powers every detail.',
-                'placeholder' => 'Enter your feature description'
+                'label' => 'Features Section Intro',
+                'value' => 'Experience cutting‑edge technology designed to elevate your workflow.',
+                'placeholder' => 'Write a short section intro'
             ],
             'attributes' => [
-                'label' => 'Please Add new feature',
+                // 'label' => 'Add New Feature',
                 'title' => [
                     'type' => 'text',
                     'name' => 'title',
-                    'label' => 'Please write your attribute title',
-                    'value' => 'camera',
-                    'placeholder' => 'Better 1 word'
+                    'label' => 'Feature Name',
+                    'value' => 'Ultra HD Camera',
+                    'placeholder' => 'Enter feature name'
                 ],
                 'description' => [
                     'type' => 'textarea',
                     'name' => 'description',
-                    'label' => 'Please enter your feature description',
-                    'value' => 'Better Camera',
-                    'placeholder' => 'Better 1 line'
+                    'label' => 'Feature One‑Line Description',
+                    'value' => 'Capture every detail with 8K clarity.',
+                    'placeholder' => 'Describe feature in one line'
                 ],
                 'icon' => [
                     'type' => 'select',
                     'name' => 'logo',
-                    'label' => 'Select a icon',
+                    'label' => 'Feature Icon',
                     'options' => [
                         'fa fa-camera',
                         'fa fa-battery-full',
                         'fa fa-laptop'
-                    ]
+                    ],
+                    'placeholder' => 'Choose a feature icon'
                 ]
             ]
         ],
+
         'overview' => [
             'title' => [
                 'type' => 'text',
                 'name' => 'title',
-                'label' => 'Please enter your overview title',
-                'value' => 'In-Depth Overview',
-                'placeholder' => 'Enter your overview title'
+                'label' => 'Overview Section Title',
+                'value' => 'Comprehensive Product Overview',
+                'placeholder' => 'Enter overview section title'
             ],
             'description' => [
                 'type' => 'textarea',
                 'name' => 'description',
-                'label' => 'Please enter your overview description',
-                'value' => 'Explore the intricate details and innovative design that define our product.',
-                'placeholder' => 'Enter your overview description'
+                'label' => 'Overview Section Intro',
+                'value' => 'Dive into the design philosophy and advanced engineering behind our product.',
+                'placeholder' => 'Write a detailed overview'
             ],
             'image' => [
                 'type' => 'file',
                 'name' => 'image',
-                'label' => 'Please upload your overview image',
-                // 'value' => '{{ asset("assets/images/placeholder.png") }}',
+                'label' => 'Overview Image',
+                'placeholder' => 'Upload overview illustration'
             ],
         ],
+
         'specs' => [
             'title' => [
                 'type' => 'text',
                 'name' => 'title',
-                'label' => 'Please enter your overview title',
-                'value' => 'Product Specs & Details',
-                'placeholder' => 'Enter your overview title'
+                'label' => 'Specifications Section Title',
+                'value' => 'Technical Specifications',
+                'placeholder' => 'Enter specs section title'
             ],
             'description' => [
                 'type' => 'textarea',
                 'name' => 'description',
-                'label' => 'Please enter your overview description',
-                'value' => 'A closer look at the numbers behind innovation. Explore the technical details that define performance and reliability.',
-                'placeholder' => 'Enter your overview description'
+                'label' => 'Specifications Section Intro',
+                'value' => 'Explore the numbers that define performance, reliability, and innovation.',
+                'placeholder' => 'Write a specs introduction'
             ],
             'image' => [
                 'type' => 'file',
                 'name' => 'image',
-                'label' => 'Please upload your specifications image',
-                // 'value' => '{{ asset("assets/images/placeholder.png") }}',
+                'label' => 'Specifications Image',
+                'placeholder' => 'Upload specs diagram or chart'
             ],
         ]
     ],

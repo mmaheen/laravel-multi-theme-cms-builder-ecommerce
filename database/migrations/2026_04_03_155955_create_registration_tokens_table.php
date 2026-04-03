@@ -10,14 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('registration_tokens', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->foreignId('user_id')->constrained();
-            $table->decimal('price', 10, 2)->default(0);
-            $table->enum('currency', ['BDT', 'USD', 'EUR'])->default('BDT');
-            $table->integer('stock')->default(0);
+            $table->string('token')->unique();
+            $table->boolean('used')->default(false); // mark if token is used
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('registration_tokens');
     }
 };

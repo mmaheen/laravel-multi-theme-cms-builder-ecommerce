@@ -10,7 +10,7 @@
         @foreach ($componentData['attributes'] ?? [] as $attribute)
             <div class="w-full sm:w-1/2 lg:w-1/4 text-center">
                 <div
-                    class="h-[67px] w-[67px] mx-auto rounded-full flex items-center justify-center text-2xl text-blue-400 shadow-2xl">
+                    class="h-16.75 w-16.75 mx-auto rounded-full flex items-center justify-center text-2xl text-blue-400 shadow-2xl">
                     <i class="{{ $attribute['icon'] }}"></i>
                 </div>
                 <h3 class="text-xl text-slate-700">{{ $attribute['title'] ?? 'test' }}</h3>

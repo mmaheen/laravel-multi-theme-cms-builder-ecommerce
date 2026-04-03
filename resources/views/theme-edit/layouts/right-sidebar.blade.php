@@ -35,7 +35,7 @@
                         @foreach ($fields as $fieldName => $field)
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">
-                                    {{ $field['label'] }}
+                                    {{ $field['label'] ?? '' }}
                                 </label>
 
                                 @switch($fieldName)
@@ -78,6 +78,18 @@
                                                 </label>
                                             @endforeach
                                         </div>
+                                    @break
+
+                                    @case('currency')
+                                        <select name="{{ $field['name'] }}"
+                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2">
+                                            @foreach ($field['options'] as $option)
+                                                <option value="{{ $option }}"
+                                                    @if (($productComponent->data[$field['name']] ?? '') == $option) selected @endif>
+                                                    {{ $option }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     @break
 
                                     @case('attributes')

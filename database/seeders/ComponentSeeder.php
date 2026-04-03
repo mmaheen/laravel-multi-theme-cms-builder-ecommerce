@@ -25,8 +25,9 @@ class ComponentSeeder extends Seeder
                     'menus' => [
                         'home',
                         'hero',
-                        'feature',
-                        'parts',
+                        'features',
+                        'overview',
+                        'specs',
                         'tutorial',
                         'gallery',
                         'contact',
@@ -54,6 +55,7 @@ class ComponentSeeder extends Seeder
                     ]),
                     'button_title' => 'Buy now',
                     'price' => $faker->numberBetween(100, 10000),
+                    'currency' => $faker->randomElement(['USD', 'EUR', 'BDT']),
                 ],
             ],
             [
@@ -117,23 +119,6 @@ class ComponentSeeder extends Seeder
                     'title' => 'Product Specs & Details',
                     'description' => 'Explore the technical details that define performance and reliability. A closer look at the numbers behind innovation.',
                     'image' => 'about.png',
-                ]
-            ],
-            [
-                'name' => 'navbar',
-                'position' => 5,
-                'product_id' => 1,
-                'data' => [
-                    'title' => 'ShopSphere',
-                    'menus' => [
-                        'home',
-                        'hero',
-                        'feature',
-                        'parts',
-                        'tutorial',
-                        'gallery',
-                        'contact',
-                    ],
                 ]
             ],
             // ['name' => 'tutorial', 'position' => 5, 'product_id' => 1, 'data' => []],

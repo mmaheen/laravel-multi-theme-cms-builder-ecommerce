@@ -10,7 +10,8 @@
             </p>
             <p class="mb-4 text-slate-500 text-xl font-bold">
                 Price: <span
-                    class="bg-gray-200 px-4 py-2 text-blue-500 rounded self-start">{{ $componentData['price'] ?? '0' }}$</span>
+                    class="bg-gray-200 px-4 py-2 text-blue-500 rounded self-start">{{ $componentData['price'] ?? '0' }}
+                    {{ $componentData['currency'] ?? 'BDT' }}</span>
             </p>
             <button class="bg-blue-500 px-4 py-2 text-white rounded-full self-start">Buy now</button>
         </div>
