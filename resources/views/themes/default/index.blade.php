@@ -2,7 +2,10 @@
 @section('content')
     <div class="container mx-auto my-5">
         @foreach ($components as $comp)
-            <x-dynamic-component :component="$comp->name" :componentData="$comp->data" />
+            @php
+                $componentName = 'default.' . $comp->name;
+            @endphp
+            <x-dynamic-component :component="$componentName" :componentData="$comp->data" />
         @endforeach
 
     </div>

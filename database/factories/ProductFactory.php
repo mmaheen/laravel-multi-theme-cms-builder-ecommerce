@@ -44,6 +44,8 @@ class ProductFactory extends Factory
             'price' => $this->faker->randomFloat(2, 10, 2000), // 2 decimals, between 10–2000
             'user_id' => User::inRandomOrder()->first()->id,
             'stock' => $this->faker->numberBetween(0, 100),
+            // 'theme' => $this->faker->randomElement(['default', 'dark', 'modern', 'nova']),
+            'theme' => 'default',
         ];
     }
 }

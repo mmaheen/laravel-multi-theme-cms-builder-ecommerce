@@ -26,22 +26,19 @@ class ComponentController extends Controller
     {
         $product = Product::where("slug", $slug)->firstOrFail();
 
-        $theme = 'default';
+        $theme = $product->theme;
         $config = include resource_path('views/themes/' . $theme . '/config.php');
 
         // Get all components sorted by position
         $components = $product->components()->orderBy('position')->get();
 
-        return view("theme-edit.index", [
-            'product' => $product,
-            'config' => $config,
-            'components' => $components,
-        ]);
+        return view("theme-edit.index", compact("product", "components", "config", "theme"));
     }
 
     public function update(Request $request, Component $component)
     {
         $validated = $request->validate([
+            'position' => 'nullable|integer|min:0',
             'title' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'price' => 'nullable|numeric|min:0',
@@ -90,10 +87,19 @@ class ComponentController extends Controller
             $componentData['attributes'] = $attributes;
         }
 
+        $component->position = $request->input('position');
         // Merge other fields
         $component->data = array_merge($componentData, $data);
         $component->save();
 
         return back()->with('success', 'Component updated successfully!');
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $component = Component::findOrFail($id);
+        $component->delete();
+
+        return back()->with('success', 'Component deleted successfully!');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Default;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -13,7 +13,7 @@ class Features extends Component
      */
     public function __construct()
     {
-
+        //
     }
 
     /**
@@ -21,6 +21,6 @@ class Features extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.features');
+        return view('components.default.features');
     }
 }

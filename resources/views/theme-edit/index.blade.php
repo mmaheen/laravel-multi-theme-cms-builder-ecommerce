@@ -4,6 +4,9 @@
         <x-dynamic-component :component="$component->name" :componentData="$component->data" />
     @endforeach --}}
     @foreach ($components as $comp)
-        <x-dynamic-component :component="$comp->name" :componentData="$comp->data" />
+        @php
+            $componentName = $theme . '.' . $comp->name;
+        @endphp
+        <x-dynamic-component :component="$componentName" :componentData="$comp->data" />
     @endforeach
 @endsection

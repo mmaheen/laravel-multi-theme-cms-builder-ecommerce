@@ -6,10 +6,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-
 Route::resource('products', ProductController::class);
 
 
@@ -28,7 +24,9 @@ Route::middleware('auth')->group(function () {
 });
 
 
-
+// Component routes
 Route::get('/product/component/create/{product}/{component}', [ComponentController::class, 'create'])->name('component.create');
 Route::get('/product/components/edit/{product}', [ComponentController::class, 'edit'])->name('components.edit');
 Route::put('/product/component/edit/{component}', [ComponentController::class, 'update'])->name('component.update');
+Route::delete('/product/component/delete/{component}', [ComponentController::class, 'destroy'])->name('component.destroy');
+// Component routes

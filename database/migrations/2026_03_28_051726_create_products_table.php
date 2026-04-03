@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->decimal('price', 10, 2)->default(0);
             $table->enum('currency', ['BDT', 'USD', 'EUR'])->default('BDT');
             $table->integer('stock')->default(0);
+            $table->enum('theme', ['default', 'dark', 'modern', 'nova']);
             $table->timestamps();
         });
     }

@@ -9,6 +9,10 @@
                     class="block w-full py-3 px-4 rounded-md bg-blue-600 text-white font-medium hover:bg-blue-700 transition">
                     Products
                 </a>
+                <a href="{{ route('create.registration.token') }}"
+                    class="block w-full py-3 px-4 rounded-md bg-green-600 text-white font-medium hover:bg-green-700 transition">
+                    Create Registration Token
+                </a>
             </nav>
         </div>
     </div>

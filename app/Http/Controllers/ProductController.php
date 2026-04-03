@@ -39,6 +39,7 @@ class ProductController extends Controller
             // 'user_id' => 'required|exists:users,id',
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
+            'theme' => 'required|in:default,dark,modern,nova',
         ]);
 
         $name = $request->input('name');
@@ -47,7 +48,8 @@ class ProductController extends Controller
             'slug' => Str::slug($name, '-', uniqid()),
             'price' => $request->input('price'),
             'stock' => $request->input('stock'),
-            'user_id' => 1,
+            'user_id' => auth()->user()->id,
+            'theme' => $request->input('theme'),
         ]);
 
         return redirect()->route('products.index')
@@ -61,8 +63,9 @@ class ProductController extends Controller
     {
         //
         $product = Product::where("slug", $slug)->first();
+        $theme = $product->theme;
         $components = $product->components()->orderBy('position')->get();
-        return view("themes.default.index", compact("product", "components"));
+        return view("themes." . $theme . ".index", compact("product", "components", "theme"));
     }
 
     /**
@@ -79,9 +82,13 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $slug)
     {
         //
+        $product = Product::where("slug", $slug)->first();
+        $product->update($request->only(['name', 'price', 'stock']));
+        return redirect()->route('products.index')
+            ->with('success', 'Product updated successfully.');
     }
 
     /**
